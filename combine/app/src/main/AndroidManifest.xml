@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.combine">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Combine">
+        <activity
+            android:name=".dt1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".dt2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".dt3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".dt4Activity"
+            android:exported="true" />
+        <activity
+            android:name=".dt5Activity"
+            android:exported="true" />
+        <activity
+            android:name=".dt6Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Test4Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Test3Activity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBI1HPKvxGzSUIJCBLz6zp9haHfdnRyF48" />
+
+        <activity
+            android:name=".Test1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Test2Activity" />
+    </application>
+
+</manifest>
