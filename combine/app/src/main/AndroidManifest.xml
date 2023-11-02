@@ -13,37 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Combine">
         <activity
-            android:name=".dt1Activity"
-            android:exported="true" />
-        <activity
-            android:name=".dt2Activity"
-            android:exported="true" />
-        <activity
-            android:name=".dt3Activity"
-            android:exported="true" />
-        <activity
-            android:name=".dt4Activity"
-            android:exported="true" />
-        <activity
-            android:name=".dt5Activity"
-            android:exported="true" />
-        <activity
-            android:name=".dt6Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Test4Activity"
-            android:exported="true" />
-        <activity
-            android:name=".Test3Activity"
+            android:name=".ForecastActivity"
             android:exported="true" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBI1HPKvxGzSUIJCBLz6zp9haHfdnRyF48" />
 
-        <activity
-            android:name=".Test1Activity"
-            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

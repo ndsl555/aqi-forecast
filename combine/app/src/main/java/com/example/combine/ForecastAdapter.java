@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class forecastAdapter extends RecyclerView.Adapter<forecastAdapter.ViewHolder> {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ViewHolder> {
 
-    List<forecastData>list;
+    List<ForecastData>list;
     Context context;
 
-    public forecastAdapter(List<forecastData> list, Context context) {
+    public ForecastAdapter(List<ForecastData> list, Context context) {
         this.list = list;
         this.context = context;
     }

@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/cc/combine/app/src/main/res/drawable/rounded_login_ui.xml" value="0.26979166666666665" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_dt5.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_dt6.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_main.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_test1.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_test3.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/activity_test4.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/forecast.xml" value="0.20108695652173914" />
+        <entry key="..\:/cc/combine/app/src/main/res/layout/list_item.xml" value="0.20108695652173914" />
         <entry key="..\:/combine/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14583333333333334" />
         <entry key="..\:/combine/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14583333333333334" />
         <entry key="..\:/combine/app/src/main/res/drawable/round_button.xml" value="0.264" />

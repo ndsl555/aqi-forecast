@@ -1,13 +1,13 @@
 package com.example.combine;
 
-public class forecastData {
+public class ForecastData {
 
     private String date;
     private String tem;
     private String rain;
     private String feel;
     private String humid;
-    public forecastData(String date, String tem, String rain ,String feel, String humid) {
+    public ForecastData(String date, String tem, String rain , String feel, String humid) {
         this.date=date;
         this.tem=tem;
         this.rain=rain;

@@ -1,40 +1,58 @@
 package com.example.combine;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
-ImageButton btnaqi,btnweather;
+    private BottomNavigationView bottomNavigationView;
+    private FrameLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        btnaqi = findViewById(R.id.btnaqi);
-        btnweather=findViewById(R.id.btnweather);
-        btnaqi.setOnClickListener(new View.OnClickListener() {
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        container = findViewById(R.id.container);
+
+        // 設置初始選中的項目
+        bottomNavigationView.setSelectedItemId(R.id.navigation_aqi);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Test1Activity.class);
-                startActivity(intent);
-            }
-        });
-        btnweather.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Test3Activity.class);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_aqi:
+                        // 切換到 AQI 內容
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, new AqiFragment())
+                                .commit();
+                        return true;
+                    case R.id.navigation_weather:
+                        // 切換到 Weather 內容
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, new WeatherFragment())
+                                .commit();
+                        return true;
+                    case R.id.navigation_gas:
+                        // 切換到 Gas 內容
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, new GasFragment())
+                                .commit();
+                        return true;
+                }
+                return false;
             }
         });
     }
+
 
 }

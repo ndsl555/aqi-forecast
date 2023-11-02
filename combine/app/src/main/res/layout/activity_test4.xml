@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="#ADD8E6"
-    tools:context=".Test4Activity">
+    tools:context=".ForecastActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

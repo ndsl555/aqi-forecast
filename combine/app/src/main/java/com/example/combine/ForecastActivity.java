@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Test4Activity extends AppCompatActivity {
+public class ForecastActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView tvsite;
-    List<forecastData>list=new ArrayList<>();
-    forecastAdapter adapter;
+    List<ForecastData>list=new ArrayList<>();
+    ForecastAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,11 @@ public class Test4Activity extends AppCompatActivity {
             for (int j = 0;j<c.length;j++){
                 //System.out.println(c[j]);
             }
-            forecastData forecastdata = new forecastData(n_sted.get(i).toString(),c[0],c[c.length-4],c[c.length-3],c[c.length-1]);
+            ForecastData forecastdata = new ForecastData(n_sted.get(i).toString(),c[0],c[c.length-4],c[c.length-3],c[c.length-1]);
             list.add(forecastdata);
         }
         Collections.reverse(list);
-        adapter =new forecastAdapter(list,Test4Activity.this);
+        adapter =new ForecastAdapter(list, ForecastActivity.this);
         recyclerView.setAdapter(adapter);
     }
 
