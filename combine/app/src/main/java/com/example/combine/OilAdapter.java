@@ -12,27 +12,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class GasAdapter extends RecyclerView.Adapter<GasAdapter.OilViewHolder> {
-    private ArrayList<GasData> gasDataList;
+public class OilAdapter extends RecyclerView.Adapter<OilAdapter.OilViewHolder> {
+    private ArrayList<OilData> oilDataList;
 
-    public GasAdapter(ArrayList<GasData> list) {
-        this.gasDataList = list;
+    public OilAdapter(ArrayList<OilData> list) {
+        this.oilDataList = list;
     }
 
     @NonNull
     @Override
     public OilViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gasoline, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_oil, parent, false);
         return new OilViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull OilViewHolder holder, int position) {
-        GasData gasData = gasDataList.get(position);
-        holder.textViewName.setText(gasData.getName());
-        holder.textViewPrice.setText(gasData.getPrice()+gasData.getUnit());
-        String state= String.valueOf(gasData.getValue().split(" ")[0]);
-        String value= String.valueOf(gasData.getValue().split(" ")[1]);
+        OilData oilData = oilDataList.get(position);
+        holder.textViewName.setText(oilData.getName());
+        holder.textViewPrice.setText(oilData.getPrice()+ oilData.getUnit());
+        String state= String.valueOf(oilData.getValue().split(" ")[0]);
+        String value= String.valueOf(oilData.getValue().split(" ")[1]);
         holder.textViewValue.setText(value);
         if(state.equals("south")){
             holder.stateimageView.setImageResource(R.drawable.baseline_arrow_downward_24);
@@ -43,13 +43,13 @@ public class GasAdapter extends RecyclerView.Adapter<GasAdapter.OilViewHolder> {
             holder.textViewValue.setTextColor(Color.RED);
         }
         else {
-
+            holder.stateimageView.setImageResource(R.drawable.baseline_horizontal_rule_24);
         }
     }
 
     @Override
     public int getItemCount() {
-        return gasDataList.size();
+        return oilDataList.size();
     }
 
     public class OilViewHolder extends RecyclerView.ViewHolder {

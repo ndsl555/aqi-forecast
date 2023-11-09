@@ -10,6 +10,7 @@
         android:title="Weather" />
     <item
         android:icon="@drawable/oil"
-        android:id="@+id/navigation_gas"
-        android:title="Gas" />
+        android:id="@+id/navigation_oil"
+        android:title="Oil" />
+
 </menu>

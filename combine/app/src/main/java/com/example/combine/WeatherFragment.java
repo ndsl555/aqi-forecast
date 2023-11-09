@@ -60,6 +60,7 @@ public class WeatherFragment extends Fragment {
                 JSONArray arr_zero = obj_records.getJSONArray("locations");
                 JSONObject obj_site = arr_zero.getJSONObject(0);
                 JSONArray arr_location = obj_site.getJSONArray("location");
+                System.out.println(arr_location.length());
 
                 for (int i = 0; i < arr_location.length(); i++) {
                     JSONObject obj_location = arr_location.getJSONObject(i);

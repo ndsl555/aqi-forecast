@@ -42,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
                                 .replace(R.id.container, new WeatherFragment())
                                 .commit();
                         return true;
-                    case R.id.navigation_gas:
+                    case R.id.navigation_oil:
                         // 切換到 Gas 內容
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, new GasFragment())
+                                .replace(R.id.container, new OilFragment())
                                 .commit();
                         return true;
+
                 }
                 return false;
             }

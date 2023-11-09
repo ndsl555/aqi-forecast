@@ -1,13 +1,13 @@
 package com.example.combine;
 
-public class GasData {
+public class OilData {
     private String name;
     private String price;
 
     private String unit;
     private String value;
 
-    public GasData(String name, String price,String unit ,String value) {
+    public OilData(String name, String price, String unit , String value) {
         this.name = name;
         this.price = price;
         this.unit=unit;

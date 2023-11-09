@@ -20,15 +20,15 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GasFragment extends Fragment {
+public class OilFragment extends Fragment {
 
-    private ArrayList<GasData> gasDataList = new ArrayList<>();
+    private ArrayList<OilData> oilDataList = new ArrayList<>();
     private View view; // 声明一个变量来存储视图
     private int isSizeAdjusted = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_gas, container, false); // 初始化视图
+        view = inflater.inflate(R.layout.fragment_oil, container, false); // 初始化视图
 
 
         setHasOptionsMenu(true); // 启用选项菜单
@@ -88,23 +88,23 @@ public class GasFragment extends Fragment {
 
     // 更新UI根据isSizeAdjusted标志
     private void updateUI() {
-        int size = gasDataList.size();
-        ArrayList<GasData> lastGasData = null;
+        int size = oilDataList.size();
+        ArrayList<OilData> lastOilData = null;
 
         if (isSizeAdjusted==0) {
-            lastGasData = new ArrayList<>(gasDataList.subList(size - 5, size - 1));
+            lastOilData = new ArrayList<>(oilDataList.subList(size - 5, size - 1));
         } else if (isSizeAdjusted==1) {
-            lastGasData = new ArrayList<>(gasDataList.subList(size - 9, size - 5));
+            lastOilData = new ArrayList<>(oilDataList.subList(size - 9, size - 5));
         }
         else {
-            lastGasData = new ArrayList<>(gasDataList.subList(1, 4));
+            lastOilData = new ArrayList<>(oilDataList.subList(1, 4));
         }
 
         // 初始化 RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.oil_recyclerView);
 
         // 创建适配器并设置给 RecyclerView
-        GasAdapter adapter = new GasAdapter(lastGasData);
+        OilAdapter adapter = new OilAdapter(lastOilData);
         recyclerView.setAdapter(adapter);
     }
 
@@ -113,7 +113,7 @@ public class GasFragment extends Fragment {
         if (document != null) {
             // 提取汽油数据
             Elements liElements = document.select("ul.cont_18 li.row");
-            GasData gasData = null;
+            OilData oilData = null;
             for (Element li : liElements) {
                 String name = li.select("div.col-4").text().trim();
                 String price = li.select("div.col-5 strong").text().trim();
@@ -121,11 +121,11 @@ public class GasFragment extends Fragment {
                 String value = li.select("div.col-3").text().trim();
 
                 // 创建Gasoline对象并添加到ArrayList
-                gasData = new GasData(name, price,unit,value);
-                gasDataList.add(gasData);
+                oilData = new OilData(name, price,unit,value);
+                oilDataList.add(oilData);
             }
-            for (GasData gas :gasDataList) {
-                System.out.println(gas.getName()+'\n');
+            for (OilData gas : oilDataList) {
+                System.out.println(gas.getName()+'\n'+gas.getValue());
             }
 
             // 通过Handler在UI线程上更新UI
