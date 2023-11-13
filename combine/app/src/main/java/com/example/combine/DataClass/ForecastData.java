@@ -1,4 +1,4 @@
-package com.example.combine;
+package com.example.combine.DataClass;
 
 public class ForecastData {
 

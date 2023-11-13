@@ -1,4 +1,4 @@
-package com.example.combine;
+package com.example.combine.Adapter;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.combine.DataClass.OilData;
+import com.example.combine.R;
 
 import java.util.ArrayList;
 
@@ -31,8 +34,8 @@ public class OilAdapter extends RecyclerView.Adapter<OilAdapter.OilViewHolder> {
         OilData oilData = oilDataList.get(position);
         holder.textViewName.setText(oilData.getName());
         holder.textViewPrice.setText(oilData.getPrice()+ oilData.getUnit());
-        String state= String.valueOf(oilData.getValue().split(" ")[0]);
-        String value= String.valueOf(oilData.getValue().split(" ")[1]);
+        String state= String.valueOf(oilData.getState());
+        String value= String.valueOf(oilData.getValue());
         holder.textViewValue.setText(value);
         if(state.equals("south")){
             holder.stateimageView.setImageResource(R.drawable.baseline_arrow_downward_24);

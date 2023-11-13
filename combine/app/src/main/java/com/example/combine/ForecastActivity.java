@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.combine.Adapter.ForecastAdapter;
+import com.example.combine.DataClass.ForecastData;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

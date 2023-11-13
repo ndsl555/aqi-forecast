@@ -10,8 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.combine.Adapter.OilAdapter;
+import com.example.combine.DataClass.OilData;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -70,16 +75,25 @@ public class OilFragment extends Fragment {
                 Log.d("GasFragment", "Original option selected");
                 isSizeAdjusted = 0;
                 updateUI();
+                Toast.makeText(getActivity(), "加油站週均價", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.menu_adjusted:
                 Log.d("GasFragment", "Adjusted option selected");
                 isSizeAdjusted = 1;
+                Toast.makeText(getActivity(), "中油", Toast.LENGTH_SHORT).show();
                 updateUI();
+                return true;
+            case R.id.menu_adjusted1:
+                Log.d("GasFragment", "Adjusted1 option selected");
+                isSizeAdjusted = 2;
+                updateUI();
+                Toast.makeText(getActivity(), "台塑", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.menu_adjusted2:
                 Log.d("GasFragment", "Adjusted2 option selected");
-                isSizeAdjusted = 2;
+                isSizeAdjusted = 3;
                 updateUI();
+                Toast.makeText(getActivity(), "國際", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -90,14 +104,17 @@ public class OilFragment extends Fragment {
     private void updateUI() {
         int size = oilDataList.size();
         ArrayList<OilData> lastOilData = null;
-
         if (isSizeAdjusted==0) {
-            lastOilData = new ArrayList<>(oilDataList.subList(size - 5, size - 1));
-        } else if (isSizeAdjusted==1) {
-            lastOilData = new ArrayList<>(oilDataList.subList(size - 9, size - 5));
+            lastOilData = new ArrayList<>(oilDataList.subList(16,20));
+        }
+        else if (isSizeAdjusted==1) {
+            lastOilData = new ArrayList<>(oilDataList.subList(8, 12));
+        }
+        else if (isSizeAdjusted==2) {
+            lastOilData = new ArrayList<>(oilDataList.subList(12, 16));
         }
         else {
-            lastOilData = new ArrayList<>(oilDataList.subList(1, 4));
+            lastOilData = new ArrayList<>(oilDataList.subList(0, 3));
         }
 
         // 初始化 RecyclerView
@@ -112,20 +129,23 @@ public class OilFragment extends Fragment {
     private void handleDataFromNetwork(Document document) {
         if (document != null) {
             // 提取汽油数据
-            Elements liElements = document.select("ul.cont_18 li.row");
+            Elements liElements = document.select("li.row");
+
             OilData oilData = null;
             for (Element li : liElements) {
-                String name = li.select("div.col-4").text().trim();
-                String price = li.select("div.col-5 strong").text().trim();
-                String unit=li.select("div.col-5 small").text().trim();
-                String value = li.select("div.col-3").text().trim();
+                String Name = li.select("div.col-4").text().trim();  // 获取 “北海布蘭特”
+                String price = li.select("div.col-5 strong").text();  // 获取 “83.71”
+                String unit = li.select("div.col-5 small").text();  // 获取 “美元/桶”
+                String state = li.select("div.col-3 i").text();  // 获取 “north”
+                String value = li.select("div.col-3").text().replace(state, "").trim();  // 获取 “2.07”
 
-                // 创建Gasoline对象并添加到ArrayList
-                oilData = new OilData(name, price,unit,value);
+                //System.out.println("Oil Name: " + Name+"Price: " + price+"Unit: " + unit+"State: " + state+"Value: " + value);
+                oilData = new OilData(Name,price,unit,state,value);
                 oilDataList.add(oilData);
             }
+
             for (OilData gas : oilDataList) {
-                System.out.println(gas.getName()+'\n'+gas.getValue());
+                //System.out.println(gas.getName()+'\n'+gas.getValue());
             }
 
             // 通过Handler在UI线程上更新UI
